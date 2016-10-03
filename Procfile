@@ -1,0 +1,1 @@
+web: gunicorn Markman.wsgi --log-file -

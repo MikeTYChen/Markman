@@ -4,4 +4,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^(?P<task_id>[0-9]+)/$', views.task, name='task'),
+    url(r'^(?P<task_id>[0-9]+)/complete/$', views.complete, name='complete'),
 ]
