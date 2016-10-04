@@ -7,6 +7,9 @@ from rest_framework import status, generics
 from tasks.models import Task
 from tasks.serializers import TaskSerializer
 
+def home(request):
+    return render(request, 'index.html')
+
 def task(request, task_id):
     return render(request, 'task.html', {'id': task_id})
 
