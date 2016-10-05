@@ -5,7 +5,7 @@ var BundleTracker = require('webpack-bundle-tracker')
 module.exports = {
   context: __dirname,
 
-  entry: './app/components/index', // entry point of our app. assets/js/index.js should require other js modules and dependencies it needs
+  entry: './app/index', // entry point of our app. assets/js/index.js should require other js modules and dependencies it needs
 
   output: {
       path: path.resolve('public/static/bundles/'),
@@ -22,7 +22,7 @@ module.exports = {
       	exclude: /node_modules/,
       	loader: 'babel', 
       	query: {
-	    	presets:['react']
+	    	presets:['react', 'es2015']
 	    },
       },
     ],
