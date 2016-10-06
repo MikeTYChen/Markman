@@ -5,25 +5,25 @@ import TaskDetail from '../containers/task_detail';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { getTasks, postTask } from '../actions/index';
+import { getFolders, postFolder } from '../actions/index';
 
 
-class AddTask extends Component {
+class AddFolder extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {new_task: ''};
+		this.state = {new_folder: ''};
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 	}
 	onInputChange(e) {
-		this.setState({new_task: e.target.value});
+		this.setState({new_folder: e.target.value});
 	}
 	onFormSubmit(event) {
 		event.preventDefault();
-		const task_name = this.state.new_task;
-		this.setState({new_task: ''});
-    	postTask(task_name);
-    	this.props.getTasks();
+		const folder_name = this.state.new_folder;
+		this.setState({new_folder: ''});
+    	postFolder(folder_name);
+    	this.props.getFolders();
 	}
 	render() {
 		return (
@@ -31,12 +31,12 @@ class AddTask extends Component {
 				<div className="input-group">
 					<input 
 						className="form-control" 
-						value={this.state.new_task} 
+						value={this.state.new_folder} 
 						onChange = {this.onInputChange}
-						placeholder="Add a Task..."
+						placeholder="Add a Folder..."
 					/>
 					<span className="input-group-btn">
-						<button className="btn btn-default" type="submit">Add Task</button>
+						<button className="btn btn-default" type="submit">Add Folder</button>
 					</span>
 				</div>
 			</form>
@@ -45,7 +45,7 @@ class AddTask extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ getTasks: getTasks }, dispatch);
+	return bindActionCreators({ getFolders: getFolders }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(AddTask);
+export default connect(null, mapDispatchToProps)(AddFolder);

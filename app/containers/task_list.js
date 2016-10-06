@@ -16,24 +16,23 @@ class TaskList extends Component {
 				<li 
 					key={idx} 
 					onClick={this.onTaskClick}
-					className="list-group-item">
+					className="list-group-item txt-capital">
 					{task.task_name}
 				</li>
 			)
 		});
 	}
 	onTaskClick() {
-		
+
 		console.log("CLICKED ME");
 	}
 	onBtnClick() {
+		// <button className="btn btn-default" onClick={this.onBtnClick}>Fetch All Tasks</button>
 		this.props.getTasks();
 	}
 	render() {
 		return (
 			<div>
-
-				<button className="btn btn-default" onClick={this.onBtnClick}>Fetch All Tasks</button>
 				<ul className="list-group">
 					{this.renderList()}
 				</ul>

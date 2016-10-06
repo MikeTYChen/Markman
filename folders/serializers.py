@@ -8,6 +8,7 @@ class FolderSerializer(serializers.ModelSerializer):
 
 	def create(self, validated_data):
 		folder_name = validated_data.get('folder_name', None)
+		folder_name = folder_name[:1].upper() + folder_name[1:]
 		return Folder.objects.create(folder_name=folder_name)
 
 	

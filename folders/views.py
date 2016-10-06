@@ -18,8 +18,7 @@ class FolderList(generics.ListCreateAPIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        user = User.objects.first()
-        serializer = FolderSerializer(data=request.data, context={'user': user})
+        serializer = FolderSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
