@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getFolders } from '../actions/index';
+import { getFolders } from '../../actions/index';
 import { bindActionCreators } from 'redux';
 
 class FolderList extends Component {

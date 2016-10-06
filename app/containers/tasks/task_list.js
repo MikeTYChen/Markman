@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getTasks, postTask } from '../actions/index';
+import { getTasks, postTask } from '../../actions/index';
 import { bindActionCreators } from 'redux';
 
 class TaskList extends Component {

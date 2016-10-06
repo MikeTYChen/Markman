@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 
-import TaskList from '../containers/task_list';
-import AddTask from '../components/add_task';
-import Navbar from '../components/navbar';
-import Sidebar from '../components/sidebar';
-import MainContainer from '../components/main_container';
-
-import TaskDetail from '../containers/task_detail';
+import Navbar from './main/navbar';
+import Sidebar from './main/sidebar';
+import MainContainer from './main/main_container';
 
 
 export default class App extends Component {

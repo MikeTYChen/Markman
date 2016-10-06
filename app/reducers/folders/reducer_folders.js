@@ -1,4 +1,4 @@
-import { GET_FOLDERS, FOLDER_ADDED } from '../actions/index';
+import { GET_FOLDERS, FOLDER_ADDED } from '../../actions/index';
 
 const defaultFolders = [{folder_name: 'Inbox'}];
 

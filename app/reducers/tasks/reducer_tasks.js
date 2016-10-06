@@ -1,4 +1,4 @@
-import {GET_TASKS, TASK_ADDED} from '../actions/index';
+import {GET_TASKS, TASK_ADDED} from '../../actions/index';
 const defaultTask = [];
 export default function(state = defaultTask, action) {	
 	switch(action.type) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import TaskList from '../containers/task_list';
-import AddTask from '../components/add_task';
-import AddFolder from '../components/add_folder';
+import TaskList from '../../containers/tasks/task_list';
+import AddTask from '../tasks/add_task';
+import AddFolder from '../folders/add_folder';
 
 class Navbar extends Component {
 	render() {

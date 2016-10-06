@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FolderList from '../containers/folder_list'
+import FolderList from '../../containers/folders/folder_list'
 
 class Sidebar extends Component {
 	render() {

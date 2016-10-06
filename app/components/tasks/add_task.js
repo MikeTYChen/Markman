@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
 
-import TaskList from '../containers/task_list';
-import TaskDetail from '../containers/task_detail';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { getFolders, postFolder } from '../actions/index';
+import { getTasks, postTask } from '../../actions/index';
 
 
-class AddFolder extends Component {
+class AddTask extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {new_folder: ''};
+		this.state = {new_task: ''};
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 	}
 	onInputChange(e) {
-		this.setState({new_folder: e.target.value});
+		this.setState({new_task: e.target.value});
 	}
 	onFormSubmit(event) {
 		event.preventDefault();
-		const folder_name = this.state.new_folder;
-		this.setState({new_folder: ''});
-    	postFolder(folder_name);
-    	this.props.getFolders();
+		const task_name = this.state.new_task;
+		this.setState({new_task: ''});
+    	postTask(task_name);
+    	this.props.getTasks();
 	}
 	render() {
 		return (
@@ -31,12 +29,12 @@ class AddFolder extends Component {
 				<div className="input-group">
 					<input 
 						className="form-control" 
-						value={this.state.new_folder} 
+						value={this.state.new_task} 
 						onChange = {this.onInputChange}
-						placeholder="Add a Folder..."
+						placeholder="Add a Task..."
 					/>
 					<span className="input-group-btn">
-						<button className="btn btn-default" type="submit">Add Folder</button>
+						<button className="btn btn-default" type="submit">Add Task</button>
 					</span>
 				</div>
 			</form>
@@ -45,7 +43,7 @@ class AddFolder extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ getFolders: getFolders }, dispatch);
+	return bindActionCreators({ getTasks: getTasks }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(AddFolder);
+export default connect(null, mapDispatchToProps)(AddTask);
