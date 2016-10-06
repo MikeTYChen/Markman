@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { getTasks, postTask } from '../../actions/index';
 import { bindActionCreators } from 'redux';
 
+
+import Task from '../../components/tasks/task_detail';
+
 class TaskList extends Component {
 	constructor(props) {
 		super(props);
@@ -13,17 +16,11 @@ class TaskList extends Component {
 	renderList() {
 		return this.props.tasks.map((task, idx) => {
 			return (
-				<li 
-					key={idx} 
-					onClick={this.onTaskClick}
-					className="list-group-item txt-capital">
-					{task.task_name}
-				</li>
+				<Task key={idx} task_name={task.task_name} />
 			)
 		});
 	}
 	onTaskClick() {
-
 		console.log("CLICKED ME");
 	}
 	onBtnClick() {
