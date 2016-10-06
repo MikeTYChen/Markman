@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'webpack_loader',
     # Internal
     'tasks.apps.TasksConfig',
+    'folders.apps.FoldersConfig',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+   'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+}
 
 ROOT_URLCONF = 'Markman.urls'
 
@@ -126,6 +136,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+CSRF_COOKIE_HTTPONLY= False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
