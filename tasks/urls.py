@@ -1,10 +1,11 @@
-from django.conf.urls import url
+from django.conf.urls import *
+from rest_framework.urlpatterns import format_suffix_patterns
 
-from . import views
+from tasks import views
 
-urlpatterns = [
-    url(r'^$', views.index, name='index'),
-    url(r'^create/', views.create, name='create'),
-    url(r'^(?P<task_id>[0-9]+)/$', views.task, name='task'),
-    url(r'^(?P<task_id>[0-9]+)/complete/$', views.complete, name='complete'),
+urlpatterns = [ 
+    url(r'^all', views.TaskList.as_view()),
+    url(r'^(?P<pk>[0-9]+)/$', views.TaskDetail.as_view()),
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
