@@ -4,6 +4,7 @@ import { getTasks, postTask } from '../../actions/index';
 import { bindActionCreators } from 'redux';
 
 
+import AddTask from '../../components/tasks/add_task';
 import Task from '../../components/tasks/task_detail';
 
 class TaskList extends Component {
@@ -32,6 +33,7 @@ class TaskList extends Component {
 			<div>
 				<ul className="list-group">
 					{this.renderList()}
+					<AddTask displayStatus={false} />
 				</ul>
 			</div>
 		)

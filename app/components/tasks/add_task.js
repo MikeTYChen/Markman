@@ -21,27 +21,40 @@ class AddTask extends Component {
 		const task_name = this.state.new_task;
 		this.setState({new_task: ''});
     	postTask(task_name);
-    	this.props.getTasks();
+	}
+	renderBtn() {
+		if(this.props.displayStatus) {
+			return (
+				<span className="input-group-btn">
+					<button className="btn btn-default" type="submit">Add Task</button>
+				</span>
+			);
+		} else {
+			return '';
+		}
 	}
 	render() {
 		return (
 			<form onSubmit={this.onFormSubmit} className="form-group">
-				<div className="input-group">
+				<div className={this.props.displayStatus ? 'input-group' : ''}>
 					<input 
 						className="form-control" 
 						value={this.state.new_task} 
 						onChange = {this.onInputChange}
 						placeholder="Add a Task..."
 					/>
-					<span className="input-group-btn">
-						<button className="btn btn-default" type="submit">Add Task</button>
-					</span>
+					{this.renderBtn()}
 				</div>
 			</form>
 		);
 	}
 }
-
+AddTask.propTypes = {
+	displayStatus: React.PropTypes.bool,
+}
+AddTask.defaultProps = {
+  	displayStatus: true,
+};
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({ getTasks: getTasks }, dispatch);
 }

@@ -8,6 +8,7 @@ class Task(models.Model):
 	date_due = models.DateTimeField('date_due')
 	date_created = models.DateTimeField('date_created')
 	author = models.ForeignKey(User, null=True, blank=True)
+	completed = models.BooleanField(default=False)
 
 class Subtask(models.Model):
 	task = models.ForeignKey(Task, on_delete=models.CASCADE)

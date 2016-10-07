@@ -6,7 +6,8 @@ export default function(state = defaultTask, action) {
 			return action.payload;
 		}
 		case TASK_ADDED: {
-			return action.payload;
+			console.log("TASK ADDED");
+			return [action.payload, ...state];
 		}		
 		default: {
 			return state;

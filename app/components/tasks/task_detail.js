@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Checkbox, Radio} from 'react-icheck';
 
+import { updateTask } from '../../actions/index';
+
 class Task extends Component {
 	constructor(props) {
 		super(props);
@@ -8,7 +10,9 @@ class Task extends Component {
 		this.onTaskClick = this.onTaskClick.bind(this);
 	}
 	onTaskClick() {
-		this.setState({completed: !this.state.completed });
+		const task_status = !this.state.completed;
+		this.setState({completed: task_status });
+		this.updateTask(task_status);
 	}
 	render() {
 		return (
