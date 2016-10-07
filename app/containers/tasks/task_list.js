@@ -16,8 +16,10 @@ class TaskList extends Component {
 	}
 	renderList() {
 		return this.props.tasks.map((task, idx) => {
+			console.log("HI");
+			console.log(task);
 			return (
-				<Task key={idx} task_name={task.task_name} />
+				<Task key={idx} task_id={task.id} task_status={task.completed} task_name={task.task_name} />
 			)
 		});
 	}

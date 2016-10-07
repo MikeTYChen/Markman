@@ -63,20 +63,24 @@ export function postTask(task_name) {
 	}
 }
 
-export function updateTask(task_name, task_status) {
+export function updateTask(task_id, task_status) {
 	// const ROOT_URL = 'http://markman-app.herokuapp.com';
+	console.log('updating task');
 	const ROOT_URL = 'http://localhost:8000';
-	const post_task_url = `${ROOT_URL}/api/v1/task/all`;
+	const post_task_url = `${ROOT_URL}/api/v1/task/${task_id}/`;
 	const all_tasks_url = `${ROOT_URL}/api/v1/task/all`;
 	const sample_task = {
-		task_name: task_name,
-		date_due: '1993-06-16T00:00:00',
-		date_created: '1993-06-16T00:00:00',
+		completed: task_status,
 	}
-	const task = $.post(post_task_url, sample_task);
-	const tasks = $.get(all_tasks_url);
+	const task = $.ajax({
+		url: post_task_url,
+		type:  "PATCH",
+		data: {
+			completed: task_status,
+		}
+	});
 	return {
 		type: TASK_UPDATED,
-		payload: tasks,	
+		payload: task,	
 	}
 }

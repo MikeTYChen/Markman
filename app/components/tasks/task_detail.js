@@ -6,13 +6,13 @@ import { updateTask } from '../../actions/index';
 class Task extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {completed: false};
+		this.state = {completed: this.props.task_status};
 		this.onTaskClick = this.onTaskClick.bind(this);
 	}
 	onTaskClick() {
 		const task_status = !this.state.completed;
 		this.setState({completed: task_status });
-		this.updateTask(task_status);
+		updateTask(this.props.task_id, task_status);
 	}
 	render() {
 		return (
@@ -33,6 +33,8 @@ class Task extends Component {
 }
 Task.propTypes = {
 	task_name: React.PropTypes.string,
+	task_id: React.PropTypes.id,
+	task_status: React.PropTypes.bool,
 }
 
 export default Task;
