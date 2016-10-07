@@ -20,8 +20,7 @@ class AddTask extends Component {
 		event.preventDefault();
 		const task_name = this.state.new_task;
 		this.setState({new_task: ''});
-    	postTask(task_name);
-    	this.props.getTasks();
+    	postTask(task_name).then(this.props.getTasks());
 	}
 	renderBtn() {
 		if(this.props.displayStatus) {

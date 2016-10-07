@@ -56,10 +56,11 @@ export function postTask(task_name) {
 		date_due: '1993-06-16T00:00:00',
 		date_created: '1993-06-16T00:00:00',
 	}
-	const task = $.post(post_task_url, sample_task);
+	const task = $.post(post_task_url, sample_task);	
+	const tasks = $.get(post_task_url);
 	return {
 		type: TASK_ADDED,
-		payload: task,	
+		payload: tasks,	
 	}
 }
 
